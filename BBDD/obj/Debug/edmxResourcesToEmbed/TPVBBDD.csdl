@@ -1,0 +1,102 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="GGarciaModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Categoria">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="del" Type="Boolean" Nullable="false" />
+    <Property Name="nom" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="Producte" Relationship="Self.FK_Producte_Categoria" FromRole="Categoria" ToRole="Producte" />
+  </EntityType>
+  <EntityType Name="Producte">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="del" Type="Boolean" Nullable="false" />
+    <Property Name="codi" Type="Int32" Nullable="false" />
+    <Property Name="nom" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="id_categoria" Type="Int32" />
+    <Property Name="preu" Type="Double" />
+    <NavigationProperty Name="Categoria" Relationship="Self.FK_Producte_Categoria" FromRole="Producte" ToRole="Categoria" />
+    <NavigationProperty Name="TicketLin" Relationship="Self.FK_TicketLin_Producte" FromRole="Producte" ToRole="TicketLin" />
+  </EntityType>
+  <EntityType Name="Ticket">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="del" Type="Boolean" Nullable="false" />
+    <Property Name="data" Type="DateTime" Precision="0" />
+    <Property Name="numeroticket" Type="Int32" />
+    <NavigationProperty Name="TicketLin" Relationship="Self.FK_TicketLin_Ticket" FromRole="Ticket" ToRole="TicketLin" />
+  </EntityType>
+  <EntityType Name="TicketLin">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="del" Type="Boolean" Nullable="false" />
+    <Property Name="idproducte" Type="Int32" Nullable="false" />
+    <Property Name="idTicket" Type="Int32" Nullable="false" />
+    <Property Name="quantitat" Type="Int32" />
+    <Property Name="preu" Type="Double" />
+    <NavigationProperty Name="Producte" Relationship="Self.FK_TicketLin_Producte" FromRole="TicketLin" ToRole="Producte" />
+    <NavigationProperty Name="Ticket" Relationship="Self.FK_TicketLin_Ticket" FromRole="TicketLin" ToRole="Ticket" />
+  </EntityType>
+  <Association Name="FK_Producte_Categoria">
+    <End Role="Categoria" Type="Self.Categoria" Multiplicity="0..1" />
+    <End Role="Producte" Type="Self.Producte" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Categoria">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Producte">
+        <PropertyRef Name="id_categoria" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TicketLin_Producte">
+    <End Role="Producte" Type="Self.Producte" Multiplicity="1" />
+    <End Role="TicketLin" Type="Self.TicketLin" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Producte">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="TicketLin">
+        <PropertyRef Name="idproducte" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TicketLin_Ticket">
+    <End Role="Ticket" Type="Self.Ticket" Multiplicity="1" />
+    <End Role="TicketLin" Type="Self.TicketLin" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Ticket">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="TicketLin">
+        <PropertyRef Name="idTicket" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="GGarciaEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Categoria" EntityType="Self.Categoria" />
+    <EntitySet Name="Producte" EntityType="Self.Producte" />
+    <EntitySet Name="Ticket" EntityType="Self.Ticket" />
+    <EntitySet Name="TicketLin" EntityType="Self.TicketLin" />
+    <AssociationSet Name="FK_Producte_Categoria" Association="Self.FK_Producte_Categoria">
+      <End Role="Categoria" EntitySet="Categoria" />
+      <End Role="Producte" EntitySet="Producte" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TicketLin_Producte" Association="Self.FK_TicketLin_Producte">
+      <End Role="Producte" EntitySet="Producte" />
+      <End Role="TicketLin" EntitySet="TicketLin" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TicketLin_Ticket" Association="Self.FK_TicketLin_Ticket">
+      <End Role="Ticket" EntitySet="Ticket" />
+      <End Role="TicketLin" EntitySet="TicketLin" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

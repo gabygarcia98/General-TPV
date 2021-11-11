@@ -1,0 +1,12 @@
+C:\Users\ggarcia\source\repos\TPV\BBDD\bin\Debug\BBDD.dll.config
+C:\Users\ggarcia\source\repos\TPV\BBDD\bin\Debug\BBDD.dll
+C:\Users\ggarcia\source\repos\TPV\BBDD\bin\Debug\BBDD.pdb
+C:\Users\ggarcia\source\repos\TPV\BBDD\bin\Debug\EntityFramework.dll
+C:\Users\ggarcia\source\repos\TPV\BBDD\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\ggarcia\source\repos\TPV\BBDD\bin\Debug\EntityFramework.xml
+C:\Users\ggarcia\source\repos\TPV\BBDD\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\ggarcia\source\repos\TPV\BBDD\obj\Debug\BBDD.csproj.AssemblyReference.cache
+C:\Users\ggarcia\source\repos\TPV\BBDD\obj\Debug\BBDD.csproj.CoreCompileInputs.cache
+C:\Users\ggarcia\source\repos\TPV\BBDD\obj\Debug\BBDD.csproj.CopyComplete
+C:\Users\ggarcia\source\repos\TPV\BBDD\obj\Debug\BBDD.dll
+C:\Users\ggarcia\source\repos\TPV\BBDD\obj\Debug\BBDD.pdb

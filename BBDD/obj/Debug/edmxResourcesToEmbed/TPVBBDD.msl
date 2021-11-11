@@ -1,0 +1,48 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="GGarciaModelStoreContainer" CdmEntityContainer="GGarciaEntities">
+    <EntitySetMapping Name="Categoria">
+      <EntityTypeMapping TypeName="GGarciaModel.Categoria">
+        <MappingFragment StoreEntitySet="Categoria">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="del" ColumnName="del" />
+          <ScalarProperty Name="nom" ColumnName="nom" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Producte">
+      <EntityTypeMapping TypeName="GGarciaModel.Producte">
+        <MappingFragment StoreEntitySet="Producte">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="del" ColumnName="del" />
+          <ScalarProperty Name="codi" ColumnName="codi" />
+          <ScalarProperty Name="nom" ColumnName="nom" />
+          <ScalarProperty Name="id_categoria" ColumnName="id_categoria" />
+          <ScalarProperty Name="preu" ColumnName="preu" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Ticket">
+      <EntityTypeMapping TypeName="GGarciaModel.Ticket">
+        <MappingFragment StoreEntitySet="Ticket">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="del" ColumnName="del" />
+          <ScalarProperty Name="data" ColumnName="data" />
+          <ScalarProperty Name="numeroticket" ColumnName="numeroticket" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TicketLin">
+      <EntityTypeMapping TypeName="GGarciaModel.TicketLin">
+        <MappingFragment StoreEntitySet="TicketLin">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="del" ColumnName="del" />
+          <ScalarProperty Name="idproducte" ColumnName="idproducte" />
+          <ScalarProperty Name="idTicket" ColumnName="idTicket" />
+          <ScalarProperty Name="quantitat" ColumnName="quantitat" />
+          <ScalarProperty Name="preu" ColumnName="preu" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>
